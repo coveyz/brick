@@ -14,10 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "@brick/cli-shared-utils": "workspace:^1.0.0",
-    "@brick/cli-ui": "workspace:^0.0.0",
+    "@brick/cli-ui": "workspace:^1.0.0",
     "chalk-animation": "2.0.2",
     "clear": "0.1.0",
     "commander": "^9.4.0",
-    "figlet": "1.5.2"
+    "figlet": "1.5.2",
+    "shortid": "^2.2.16"
   }
 }
