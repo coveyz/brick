@@ -1,0 +1,21 @@
+{
+  "name": "@brick/cli",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "brick": "./bin/brick.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "coveyz",
+  "license": "ISC",
+  "dependencies": {
+    "@brick/cli-shared-utils": "workspace:^1.0.0",
+    "chalk-animation": "2.0.2",
+    "clear": "0.1.0",
+    "commander": "^9.4.0",
+    "figlet": "1.5.2"
+  }
+}

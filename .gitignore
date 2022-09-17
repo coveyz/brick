@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+packages/test
+*.log
+dist
+.changelog
+package-lock.json
+pnpm-lock.json
+.vscode
