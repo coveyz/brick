@@ -1,4 +1,4 @@
-// import chalk from 'chalk';
+import chalk from 'chalk';
+import openBrowser from './lib/openBrowser.js';
 
-exports.chalk = require('chalk');
-
+export { chalk, openBrowser };
