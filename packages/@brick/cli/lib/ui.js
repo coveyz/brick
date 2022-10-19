@@ -1,6 +1,8 @@
 import { openBrowser, log } from '@brick/cli-shared-utils';
 import { portfinder, server } from '@brick/cli-ui/server.js';
 import shortid from 'shortid';
+import { createRequire } from 'module';
+const requirePath = createRequire(import.meta.url);
 
 async function ui(options = {}, context = process.cwd) {
 	// console.log('ui=>');
@@ -24,8 +26,32 @@ async function ui(options = {}, context = process.cwd) {
 	}
 
 	if (!options.quiet) log(`🚀  Starting GUI...`);
+
+	// 配置文件
+	const opts = {
+		host,
+		port,
+		graphqlPath: '/graphql',
+		subscriptionsPath: '/graphql',
+		enableMocks: false,
+		enableEngine: false,
+		cors: {
+			host,
+		},
+		timeout: 1000000,
+		quiet: true,
+		paths: {
+			typeDefs: requirePath.resolve('@brick/cli-ui/apollo-server/type-defs.js'),
+			//todo ...
+		},
+	};
+
+	const serverCallbak = await server(opts, () => {});
+
+	console.log('serverCallbak=>', serverCallbak);
 }
 
 export default (...args) => {
+	// module.exports = (...args) => {
 	return ui(...args);
 };
