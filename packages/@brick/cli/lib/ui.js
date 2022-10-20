@@ -5,7 +5,6 @@ import { createRequire } from 'module';
 const requirePath = createRequire(import.meta.url);
 
 async function ui(options = {}, context = process.cwd) {
-	// console.log('ui=>');
 	const host = options.host || 'localhost';
 
 	let port = options.port;
@@ -42,6 +41,9 @@ async function ui(options = {}, context = process.cwd) {
 		quiet: true,
 		paths: {
 			typeDefs: requirePath.resolve('@brick/cli-ui/apollo-server/type-defs.js'),
+      resolvers: requirePath.resolve('@brick/cli-ui/apollo-server/resolvers.js'),
+      pubsub: requirePath.resolve('@brick/cli-ui/apollo-server/pubsub.js'),
+      server: requirePath.resolve('@brick/cli-ui/apollo-server/server.js'),
 			//todo ...
 		},
 	};
