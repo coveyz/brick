@@ -13,6 +13,7 @@
   "dependencies": {
     "@commitlint/cli": "17.0.2",
     "@commitlint/config-conventional": "17.0.2",
+    "fs-extra": "^10.1.0",
     "globby": "^13.1.2",
     "husky": "^8.0.1"
   }

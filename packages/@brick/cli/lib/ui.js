@@ -41,10 +41,11 @@ async function ui(options = {}, context = process.cwd) {
 		quiet: true,
 		paths: {
 			typeDefs: requirePath.resolve('@brick/cli-ui/apollo-server/type-defs.js'),
-      resolvers: requirePath.resolve('@brick/cli-ui/apollo-server/resolvers.js'),
-      pubsub: requirePath.resolve('@brick/cli-ui/apollo-server/pubsub.js'),
-      server: requirePath.resolve('@brick/cli-ui/apollo-server/server.js'),
-			//todo ...
+			resolvers: requirePath.resolve('@brick/cli-ui/apollo-server/resolvers.js'),
+			pubsub: requirePath.resolve('@brick/cli-ui/apollo-server/pubsub.js'),
+			server: requirePath.resolve('@brick/cli-ui/apollo-server/server.js'),
+			directives: requirePath.resolve('@brick/cli-ui/apollo-server/directives.js'),
+			context: requirePath.resolve('@brick/cli-ui/apollo-server/context.js'),
 		},
 	};
 

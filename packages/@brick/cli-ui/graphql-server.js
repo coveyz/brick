@@ -51,8 +51,10 @@ export default async function (options, cb = null) {
 	//* 自定义文件
 	let typeDefs = await load(options.paths.typeDefs);
 	const resolvers = await load(options.paths.resolvers); //todo resolvers
-	// const context = await load(options.paths.context) // todo context
-	// const schemaDirectives = await load(options.paths.schemaDirectives) //todo schemaDirectives
+	const schemaDirectives = await load(options.paths.directives); //todo schemaDirectives
+	const context = await load(options.paths.context); // todo context
+
+	// console.log('context=>', context);
 
 	let pubsub;
 	try {
@@ -83,5 +85,45 @@ export default async function (options, cb = null) {
 	// console.log('typeDefs=>', typeDefs);
 
 	let subscriptionServer;
-	let apolloServerOptions = {}; //todo apolloServerOptions
+	//todo apolloServerOptions
+	let apolloServerOptions = {
+		typeDefs,
+		resolvers,
+		schemaDirectives,
+		dataSource,
+		tracing: true,
+		cache: 'bounded',
+		cacheControl: true,
+		engine: !options.integratedEngine,
+		// WebSocket中 Resolvers 上下文
+		context: async ({ req, connect }) => {
+			console.log('apolloServer-options-context');
+			let contextData;
+
+			try {
+				if (connect) {
+					// contextData = await autoCall()
+				} else {
+					// contextData = await autoCall()
+				}
+			} catch (error) {
+				console.error('apolloServer-options-context-error=>', error);
+				throw error;
+			}
+
+			contextData = Object.assign({}, contextData);
+			return contextData;
+		},
+		plugins: [
+			{
+				async serverWillStart() {
+					return {
+						async drainServer() {
+							subscriptionServer.close();
+						},
+					};
+				},
+			},
+		],
+	};
 }

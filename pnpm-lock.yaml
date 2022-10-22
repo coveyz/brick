@@ -6,11 +6,13 @@ importers:
     specifiers:
       '@commitlint/cli': 17.0.2
       '@commitlint/config-conventional': 17.0.2
+      fs-extra: ^10.1.0
       globby: ^13.1.2
       husky: ^8.0.1
     dependencies:
       '@commitlint/cli': 17.0.2
       '@commitlint/config-conventional': 17.0.2
+      fs-extra: 10.1.0
       globby: 13.1.2
       husky: 8.0.1
 
@@ -50,6 +52,7 @@ importers:
       graphql: ^16.6.0
       graphql-subscriptions: ^2.0.0
       graphql-tag: ^2.12.6
+      lowdb: ^5.0.3
       portfinder: ^1.0.32
       typescript: ^4.6.4
       vite: ^3.1.0
@@ -63,6 +66,7 @@ importers:
       graphql: 16.6.0
       graphql-subscriptions: 2.0.0_graphql@16.6.0
       graphql-tag: 2.12.6_graphql@16.6.0
+      lowdb: 5.0.3
       portfinder: 1.0.32
       vue: 3.2.39
     devDependencies:
@@ -2056,6 +2060,13 @@ packages:
     resolution: {integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==}
     dev: false
 
+  /lowdb/5.0.3:
+    resolution: {integrity: sha512-26qk7jgHbLGytYoZOf7/hgcvksYkRpXSnCJTSbnXApDExMkOw/vjWyjDBba4HYbuZN23MIf4Dc8q99QIgzQthA==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      steno: 3.0.0
+    dev: false
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -2705,6 +2716,11 @@ packages:
   /statuses/2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /steno/3.0.0:
+    resolution: {integrity: sha512-uZtn7Ht9yXLiYgOsmo8btj4+f7VxyYheMt8g6F1ANjyqByQXEE2Gygjgenp3otHH1TlHsS4JAaRGv5wJ1wvMNw==}
+    engines: {node: '>=14.16'}
     dev: false
 
   /string-width/4.2.3:
