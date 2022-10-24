@@ -1,6 +1,6 @@
 import path from 'path';
-import fs from 'fs-extra';
-import { getRcPath } from '@brick/cli/lib/util/rcPath';
+// import fs from 'fs-extra';
+import { getRcPath } from '@brick/cli/lib/util/rcPath.js';
 
 let folder;
 

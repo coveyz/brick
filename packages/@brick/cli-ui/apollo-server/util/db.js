@@ -1,11 +1,9 @@
-import Lowdb from 'lowdb';
-import FileSync from 'lowdb/lib/adapters/TextFileSync';
 import path from 'path';
-import * as rcFolder from './rcFolder';
+import Lowdb from 'lowdb';
+import FileSync from 'lowdb/adapters/FileSync.js';
+import * as rcFolder from './rcFolder.js';
 
-const db = new Lowdb(new FileSync(path.resolve(rcFolder, 'db.json')));
-
-console.log('db=>', db);
+const db = new Lowdb(new FileSync(path.resolve(rcFolder.default, 'db.json')));
 
 //* 种 空DB
 db.defaults({
