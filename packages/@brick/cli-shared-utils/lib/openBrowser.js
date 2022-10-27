@@ -1,3 +1,4 @@
+// todo openBrowser
 const openBrowser = (url) => {
 	console.log('openBrowser=>', url);
 };

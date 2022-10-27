@@ -1,8 +1,15 @@
-import { openBrowser, log } from '@brick/cli-shared-utils';
-import { portfinder, server } from '@brick/cli-ui/server.js';
 import shortid from 'shortid';
 import { createRequire } from 'module';
+
+import { openBrowser, log } from '@brick/cli-shared-utils';
+import { portfinder, server } from '@brick/cli-ui/server.js';
+import { setNotificationCallback } from '@brick/cli-ui/apollo-server/util/notification.js';
+
 const requirePath = createRequire(import.meta.url);
+
+const simpleCorsValidation = () => {
+	console.log('ui-simpleCorsValidation=>');
+};
 
 async function ui(options = {}, context = process.cwd) {
 	const host = options.host || 'localhost';
@@ -49,12 +56,32 @@ async function ui(options = {}, context = process.cwd) {
 		},
 	};
 
-	const serverCallbak = await server(opts, () => {});
+	const { httpServer } = await server(opts, () => {
+		// 重新 设置环境
+		if (typeof nodeEnv === 'undefined') {
+			delete process.env.NODE_ENV;
+		} else {
+			process.env.NODE_ENV = nodeEnv;
+		}
 
-	console.log('serverCallbak=>', serverCallbak);
+		const url = `http://${host}:${port}`;
+		console.log('url=.', url);
+		if (!options['quiet']) log(`🌠 Ready on ${url}`);
+		setNotificationCallback(() => openBrowser(url));
+		openBrowser(url);
+	});
+
+	// console.log('serverCallbak=>', serverCallbak);
+	httpServer.on('upgrade', simpleCorsValidation(host));
 }
 
 export default (...args) => {
 	// module.exports = (...args) => {
-	return ui(...args);
+	return ui(...args).catch((error) => {
+		console.log('ui-catch-error', error);
+
+		if (!process.env.VUE_CLI_TEST) {
+			process.exit(1);
+		}
+	});
 };
