@@ -7,8 +7,18 @@ import { setNotificationCallback } from '@brick/cli-ui/apollo-server/util/notifi
 
 const requirePath = createRequire(import.meta.url);
 
-const simpleCorsValidation = () => {
-	console.log('ui-simpleCorsValidation=>');
+// cors 验证
+const simpleCorsValidation = (alloweHost) => {
+	console.log('ui-simpleCorsValidation=>', alloweHost);
+	return function (req, socket) {
+		const { host, origin } = req.header;
+		// console.log('host=>', host, 'origin=>', origin);
+		const sageOrigins = [host, alloweHost, 'localhost'];
+
+		if (!origin || !sageOrigins.includes(new URL(origin).hostname)) {
+			socket.destory();
+		}
+	};
 };
 
 async function ui(options = {}, context = process.cwd) {
@@ -71,8 +81,7 @@ async function ui(options = {}, context = process.cwd) {
 		openBrowser(url);
 	});
 
-	// console.log('serverCallbak=>', serverCallbak);
-	// httpServer.on('upgrade', simpleCorsValidation(host));
+	httpServer.on('upgrade', simpleCorsValidation(host));
 }
 
 export default (...args) => {

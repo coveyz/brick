@@ -62,7 +62,7 @@ const startBrowserProcess = (browser, url) => {
 
 const openBrowser = (url) => {
 	const { value, action } = getBrowserEnv();
-	console.log('openBrowser=>', url, 'envResult==>', { value, action });
+	// console.log('openBrowser=>', url, 'envResult==>', { value, action });
 	switch (action) {
 		case Actions.NONE:
 			return false;
