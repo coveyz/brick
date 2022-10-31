@@ -72,7 +72,7 @@ async function ui(options = {}, context = process.cwd) {
 	});
 
 	// console.log('serverCallbak=>', serverCallbak);
-	httpServer.on('upgrade', simpleCorsValidation(host));
+	// httpServer.on('upgrade', simpleCorsValidation(host));
 }
 
 export default (...args) => {
