@@ -10,7 +10,7 @@ const distPath = path.resolve(__dirname, '../dist');
 const publicPath = path.resolve(__dirname, '../ui-public');
 
 const setHeaders = (res, path, stat) => {
-	console.log('apollo-server-server-setHeaders=>');
+	// console.log('apollo-server-server-setHeaders=>');
 	res.set('CacheCache-Control', CACHE_CONTROL);
 };
 
