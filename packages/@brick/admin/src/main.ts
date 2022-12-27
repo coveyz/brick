@@ -1,5 +1,14 @@
 import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import ElementPlus from 'element-plus';
 
-createApp(App).mount('#app')
+import App from './App.vue'
+import router from '@/router';
+
+//* 引入公共样式
+import '@/styles/index.scss';
+import 'element-plus/dist/index.css'
+
+const app = createApp(App);
+
+app.use(ElementPlus).use(router)
+app.mount('#app')
