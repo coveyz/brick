@@ -1,9 +1,7 @@
 <template>
   <div>
-    login
-    <button class="bg-red-500 hover:bg-red-700">
-      Hover me
-    </button>
+    UserLaylout-header
+
   </div>
 </template>
 
