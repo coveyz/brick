@@ -1,5 +1,5 @@
 <template>
-	<el-switch v-model="dataTheme" inline-prompt :active-icon="Sunny" :inactive-icon="Moon" @change="dataThemeChange" />
+	<el-switch v-model="dataTheme" inline-prompt :active-icon="Moon" :inactive-icon="Sunny" @change="dataThemeChange" />
 </template>
 
 <script lang="ts">

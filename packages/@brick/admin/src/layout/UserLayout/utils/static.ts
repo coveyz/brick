@@ -1,7 +1,5 @@
+import bg from '@/assets/login/bg.png';
+import illustration from "@/assets/login/illustration.svg";
 
 
-import bg from '../../../assets/login/bg.png';
-
-
-
-export { bg }
+export { bg, illustration }
