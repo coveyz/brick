@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <div>
+    register
+  </div>
 </template>
 
 <script lang="ts">

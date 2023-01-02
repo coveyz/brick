@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 
 type path = string;
 
-const resolve = (dir: string) => {
+const resolve = (dir: string): string => {
   return path.resolve(__dirname, dir)
 }
 

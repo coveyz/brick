@@ -11,6 +11,8 @@ importers:
       globby: ^13.1.2
       husky: ^8.0.1
       postcss: ^8.4.20
+      postcss-import: ^15.1.0
+      responsive-storage: ^2.1.0
       tailwindcss: ^3.2.4
     dependencies:
       '@commitlint/cli': 17.0.2
@@ -20,19 +22,27 @@ importers:
       globby: 13.1.2
       husky: 8.0.1
       postcss: 8.4.20
+      postcss-import: 15.1.0_postcss@8.4.20
+      responsive-storage: 2.1.0
       tailwindcss: 3.2.4_postcss@8.4.20
 
   packages/@brick/admin:
     specifiers:
+      '@element-plus/icons-vue': ^2.0.10
       '@vitejs/plugin-vue': ^4.0.0
       element-plus: ^2.2.27
+      js-cookie: ^3.0.1
+      pinia: ^2.0.28
       typescript: ^4.9.3
       vite: ^4.0.0
       vue: ^3.2.45
       vue-router: '4'
       vue-tsc: ^1.0.11
     dependencies:
+      '@element-plus/icons-vue': 2.0.10_vue@3.2.45
       element-plus: 2.2.27_vue@3.2.45
+      js-cookie: 3.0.1
+      pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
       vue: 3.2.45
       vue-router: 4.1.6_vue@3.2.45
     devDependencies:
@@ -2973,6 +2983,11 @@ packages:
     resolution: {integrity: sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==}
     dev: false
 
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -3453,6 +3468,24 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /pinia/2.0.28_prq2uz4lho2pwp6irk4cfkrxwu:
+    resolution: {integrity: sha512-YClq9DkqCblq9rlyUual7ezMu/iICWdBtfJrDt4oWU9Zxpijyz7xB2xTwx57DaBQ96UGvvTMORzALr+iO5PVMw==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      typescript: 4.9.4
+      vue: 3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    dev: false
+
   /portfinder/1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
     engines: {node: '>= 0.12.0'}
@@ -3467,6 +3500,18 @@ packages:
   /postcss-import/14.1.0_postcss@8.4.20:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
+    peerDependencies:
+      postcss: ^8.0.0
+    dependencies:
+      postcss: 8.4.20
+      postcss-value-parser: 4.2.0
+      read-cache: 1.0.0
+      resolve: 1.22.1
+    dev: false
+
+  /postcss-import/15.1.0_postcss@8.4.20:
+    resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
@@ -3719,6 +3764,10 @@ packages:
       is-core-module: 2.10.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+
+  /responsive-storage/2.1.0:
+    resolution: {integrity: sha512-LXqyeZ/5J7SCcid+psVuwVfWaV8iX1HjvHUn7aSX5Q6H6QSZo9yDDotRjuFp1UNm3XU7yLZhWKejkmFA0xkeuw==}
+    dev: false
 
   /retry/0.13.1:
     resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}

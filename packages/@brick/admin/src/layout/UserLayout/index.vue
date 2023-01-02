@@ -2,7 +2,9 @@
   <div class="select-none">
     <img :src="bgimg"
          class="wave" />
-    <Navbar />
+    <div class="flex-c absolute right-5 top-3">
+      <Navbar />
+    </div>
     <RouterView />
     UserLaylout-footer
   </div>
