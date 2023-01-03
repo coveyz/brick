@@ -12,7 +12,7 @@ export default defineComponent({
   render() {
     const { delay } = this
     const motion = resolveDirective('motion');
-    console.log('Motion=>', motion)
+    // console.log('Motion=>', motion)
 
     return withDirectives(
       h('div', {}, {

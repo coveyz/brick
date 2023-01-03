@@ -10,8 +10,8 @@ import { injectResponseStorage } from '@/utils/tools';
 
 //* 引入公共样式
 import '@/styles/index.scss';
-import 'element-plus/dist/index.css';
 import '@/styles/tailwind.css'
+import 'element-plus/dist/index.css';
 
 const app = createApp(App);
 

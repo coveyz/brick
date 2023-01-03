@@ -37,7 +37,7 @@ export default defineComponent({
 					<component :is="avatar" class="avatar"></component>
 					<Motion>
 						<h2 class="outline-none">
-							<TypeIt :values="[title]" />
+							<TypeIt :values="[title]" :cursor="false" :speed="150"/>
 						</h2>
 					</Motion>
 					<RouterView />

@@ -20,7 +20,7 @@ export default defineComponent({
     },
     cursor: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   render() {

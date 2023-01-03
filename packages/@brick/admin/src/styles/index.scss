@@ -1,5 +1,5 @@
-@import './element-plus.scss';
-@import './dark.scss';
+// @import './element-plus.scss';
+// @import './dark.scss';
 
 *,
 ::before,
@@ -108,12 +108,12 @@ select {
 	text-transform: none;
 }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-	background-image: none;
-}
+// button,
+// [type='button'],
+// [type='reset'],
+// [type='submit'] {
+// 	background-image: none;
+// }
 
 :-moz-focusring {
 	outline: auto;
