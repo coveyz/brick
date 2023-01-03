@@ -13,6 +13,7 @@
     "element-plus": "^2.2.27",
     "js-cookie": "^3.0.1",
     "pinia": "^2.0.28",
+    "typeit": "^8.7.1",
     "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.45",
     "vue-router": "4"

@@ -1,1 +1,2 @@
-export { default as Motion } from './Motion/index.ts'
+export { default as Motion } from '@/components/Motion/index'
+export { default as TypeIt } from '@/components/TypeIt/index'

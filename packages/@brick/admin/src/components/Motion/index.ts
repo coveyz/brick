@@ -16,7 +16,7 @@ export default defineComponent({
 
     return withDirectives(
       h('div', {}, {
-        default: () => [this.$slots.default()]
+        default: () => [(this.$slots as any).default()]
       }),
       [
         [

@@ -2,7 +2,7 @@
 import { defineComponent, toRaw } from 'vue';
 import { bg, illustration, avatar } from './utils/static';
 import { Navbar } from './components';
-import { Motion } from '@/components';
+import { Motion, TypeIt } from '@/components';
 
 export default defineComponent({
 	setup() {
@@ -11,10 +11,11 @@ export default defineComponent({
 			avatar,
 		};
 	},
-	components: { Navbar, Motion },
+	components: { Navbar, Motion, TypeIt },
 	data() {
 		return {
 			bgimg: bg,
+			title: 'admin', //🍌 以后放到 配置文件中
 		};
 	},
 });
@@ -23,7 +24,6 @@ export default defineComponent({
 <template>
 	<div class="select-none">
 		<img :src="bgimg" class="wave" />
-
 		<div class="flex-c absolute right-5 top-3">
 			<!-- 🍌 主体 -->
 			<Navbar />
@@ -36,7 +36,9 @@ export default defineComponent({
 				<div class="user-form">
 					<component :is="avatar" class="avatar"></component>
 					<Motion>
-						<h2>test</h2>
+						<h2 class="outline-none">
+							<TypeIt :values="[title]" />
+						</h2>
 					</Motion>
 					<RouterView />
 				</div>
@@ -69,6 +71,12 @@ export default defineComponent({
 }
 .user-form {
 	width: 360px;
+	h2 {
+		text-transform: uppercase;
+		margin: 15px 0;
+		color: #999;
+		font: bold 200% Consolas, Monaco, monospace;
+	}
 }
 
 .img {
@@ -91,6 +99,10 @@ export default defineComponent({
 	}
 	.user-form {
 		width: 290px;
+		h2 {
+			font-size: 2.4rem;
+			margin: 8px 0;
+		}
 	}
 }
 @media screen and (max-width: 968px) {
