@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus';
+import { MotionPlugin } from '@vueuse/motion';
 
 import App from './App.vue'
 import router from '@/router';
@@ -17,4 +18,4 @@ const app = createApp(App);
 setupStore(app)
 injectResponseStorage(app, config)
 
-app.use(router).use(ElementPlus).mount('#app')
+app.use(MotionPlugin).use(router).use(ElementPlus).mount('#app')

@@ -1,15 +1,17 @@
 <script lang="ts">
 import { defineComponent, toRaw } from 'vue';
-import { bg, illustration } from './utils/static';
+import { bg, illustration, avatar } from './utils/static';
 import { Navbar } from './components';
+import { Motion } from '@/components';
 
 export default defineComponent({
 	setup() {
 		return {
 			illustration: toRaw(illustration),
+			avatar,
 		};
 	},
-	components: { Navbar },
+	components: { Navbar, Motion },
 	data() {
 		return {
 			bgimg: bg,
@@ -31,7 +33,13 @@ export default defineComponent({
 				<component :is="illustration" />
 			</div>
 			<div class="user-box">
-				<RouterView />
+				<div class="user-form">
+					<component :is="avatar" class="avatar"></component>
+					<Motion>
+						<h2>test</h2>
+					</Motion>
+					<RouterView />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -53,20 +61,36 @@ export default defineComponent({
 	grid-gap: 18rem;
 	padding: 0 2rem;
 }
-.img {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
+
 .user-box {
 	display: flex;
 	align-items: center;
 	text-align: center;
 }
+.user-form {
+	width: 360px;
+}
+
+.img {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.avatar {
+	width: 350px;
+	height: 80px;
+}
 
 @media screen and (max-width: 1180px) {
 	.user-container {
 		grid-gap: 9rem;
+	}
+	.avatar {
+		width: 280px;
+		height: 80px;
+	}
+	.user-form {
+		width: 290px;
 	}
 }
 @media screen and (max-width: 968px) {
