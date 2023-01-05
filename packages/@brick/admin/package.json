@@ -10,10 +10,13 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
     "@vueuse/motion": "2.0.0-beta.12",
+    "axios": "^1.2.2",
     "element-plus": "^2.2.27",
     "js-cookie": "^3.0.1",
+    "mockjs": "^1.1.0",
     "pinia": "^2.0.28",
     "typeit": "^8.7.1",
+    "vite-plugin-mock": "^2.9.6",
     "vite-svg-loader": "^4.0.0",
     "vue": "^3.2.45",
     "vue-router": "4"
