@@ -1,20 +1,31 @@
 import { defineStore } from 'pinia';
+import { getToken, setToken } from '@/utils/auth'
 import { UserType } from './types';
-import axios from 'axios'
+import { login } from '@/api/user'
+
 
 export const useUserStore = defineStore('admin-user', {
   state: (): UserType => ({
-    token: '',
+    token: getToken(),
   }),
   actions: {
+    SET_TOKEN(token: string) {
+      this.token = token
+    },
     /** 🍌登录 */
     login(userInfo: any) {
       return new Promise((resolve, reject) => {
-        const { username, password } = userInfo
-        console.log('userInfo=>', userInfo)
-        axios.get('/api/getUsers').then((res) => {
-          console.log(res);
-        })
+        let { username, password } = userInfo
+        login({ username: username.trim(), password: password })
+          .then(res => {
+            const { data } = res;
+            this.SET_TOKEN(data.token)
+            setToken(data.token)
+            resolve(true)
+          })
+          .catch(error => {
+            reject(error)
+          })
       })
     }
   }

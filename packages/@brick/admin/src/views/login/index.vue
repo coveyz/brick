@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { reactive, ref, watch } from 'vue';
+import { useRouter, useRoute, LocationQuery } from 'vue-router';
 import type { FormRules, FormInstance } from 'element-plus';
 import { User, Lock } from '@element-plus/icons-vue';
 
 import { Motion } from '@/components';
 import { useUserStore } from '@/store/modules/user';
 
-const router = useRouter();
+const router = useRouter(),
+	route = useRoute();
 
+// 🍌 state
 const loginRef = ref<FormInstance>(),
 	operates = [
 		{
@@ -43,13 +45,45 @@ const loginRef = ref<FormInstance>(),
 				message: '请输入密码',
 			},
 		],
+	}),
+	state = reactive({
+		redirect: '',
+		otherQuery: {},
 	});
+
+// 🍌 兼容路由
+watch(
+	() => route.query,
+	(query) => {
+		if (query) {
+			state.redirect = query['redirect']?.toString() ?? '';
+			state.otherQuery = getOtherQuery<LocationQuery>(query);
+		}
+	}
+);
+
+// 🍌 获取其他 query
+function getOtherQuery<T>(query: T) {
+	const map = {} as T;
+
+	for (const key in query) {
+		if (key !== 'redirect') {
+			map[key] = query[key];
+		}
+	}
+  
+	return map;
+}
+
 /** 🍌 登录 */
 const onLogin = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
 	formEl.validate((valid) => {
 		if (!valid) return console.log('error submit');
-		useUserStore().login(form);
+		const userStore = useUserStore();
+		userStore.login(form).then((res) => {
+			console.log('res=>', res);
+		});
 	});
 };
 // 🍌 跳转操作

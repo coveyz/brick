@@ -1,5 +1,6 @@
-import injectResponseStorage from './responsive';
 import Storage from 'responsive-storage';
+import { ElNotification } from 'element-plus'
+import injectResponseStorage from './responsive';
 
 const $Storage = Storage;
 
@@ -12,4 +13,27 @@ export const setItem = (key: string, value: any) => {
 }
 
 export { injectResponseStorage, $Storage }
+
+/**
+ * 成功信息
+ */
+export const successMsg = (message: string, title = '成功') => {
+  return ElNotification({
+    title,
+    message,
+    type: 'success',
+  })
+}
+
+/**
+ * 错误信息
+*/
+export const errorMsg = (message: string, title = '错误') => {
+  return ElNotification({
+    title,
+    message,
+    type: 'error',
+  })
+}
+
 
