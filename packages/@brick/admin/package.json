@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
+    "@types/nprogress": "^0.2.0",
     "@vueuse/motion": "2.0.0-beta.12",
     "axios": "^1.2.2",
     "element-plus": "^2.2.27",
     "js-cookie": "^3.0.1",
     "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
     "pinia": "^2.0.28",
     "typeit": "^8.7.1",
     "vite-plugin-mock": "^2.9.6",

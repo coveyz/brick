@@ -1,6 +1,7 @@
 import Storage from 'responsive-storage';
 import { ElNotification } from 'element-plus'
 import injectResponseStorage from './responsive';
+import setting from '@/setting'
 
 const $Storage = Storage;
 
@@ -36,4 +37,11 @@ export const errorMsg = (message: string, title = '错误') => {
   })
 }
 
+const title = setting['Title'] || 'VVE Admin'
+export const getPageTitle = (pageTitle?: string) => {
+  if (pageTitle) {
+    return `${pageTitle} | ${title}`
+  }
+  return title
+}
 

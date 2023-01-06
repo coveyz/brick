@@ -2,6 +2,7 @@ import { createRouter, RouterScrollBehavior, RouteRecordRaw, createWebHashHistor
 
 //* Userlayout
 const UserLayout = () => import('@/layout/UserLayout/index.vue')
+const BasicLayout = () => import('@/layout/BasicLayout/index.vue');
 
 //* 常规路由
 export const constantsRoutes: RouteRecordRaw[] = [
@@ -16,12 +17,25 @@ export const constantsRoutes: RouteRecordRaw[] = [
       {
         path: "/user/login",
         component: () => import('@/views/login/index.vue'),
-        meta: { hidden: true }
+        meta: { title: '登录',hidden: true, }
       },
       {
         path: '/user/register',
         component: () => import('@/views/register/index.vue'),
         meta: { hidden: true }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: BasicLayout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index.vue'),
+        name: 'Dashboard',
+        meta: { title: 'Dashboard', icon: 'dashboard', affix: true, hidden: true }
       }
     ]
   }

@@ -22,6 +22,8 @@ export const useDataThemeChange = () => {
       setLayoutThemeColor(useThemeStore().theme)
     }
 
+    console.log('state=>', state)
+
     if (state.dataTheme) {
       document.documentElement.classList.add('dark')
     } else {

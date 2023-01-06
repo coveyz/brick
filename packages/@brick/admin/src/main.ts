@@ -13,6 +13,9 @@ import '@/styles/index.scss';
 import '@/styles/tailwind.css'
 import 'element-plus/dist/index.css';
 
+import '@/permission'
+
+
 const app = createApp(App);
 
 setupStore(app)

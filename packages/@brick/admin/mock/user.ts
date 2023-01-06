@@ -1,4 +1,8 @@
 import { MockMethod } from 'vite-plugin-mock'
+import Base from '../plugins/base'
+
+const Info = new Base();
+
 
 const tokens = {
   admin: {
@@ -25,6 +29,7 @@ const users = {
 }
 
 export default [
+  // 🍌 登录
   {
     url: '/api/user/login',
     method: 'post',
@@ -34,18 +39,23 @@ export default [
       const token = username === 'admin' ? tokens['admin'] : tokens['editor'];
 
       if (!token) {
-        return {
-          code: 60204,
-          message: '帐户和密码不正确',
-          data: null
-        }
+        return Info.error(60204, '帐户和密码不正确')
       }
+      return Info.success(token)
+    }
+  },
+  // 🍌 获取用户信息
+  {
+    url: '/api/user/info',
+    method: 'get',
+    response: ({ query }) => {
+      const { token } = query;
+      const info = users[token];
 
-      return {
-        code: 20000,
-        message: '',
-        data: token
+      if (!info) {
+        return Info.error(50008, '')
       }
+      return Info.success(info)
     }
   }
 ] as MockMethod[]

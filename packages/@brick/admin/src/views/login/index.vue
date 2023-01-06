@@ -27,7 +27,7 @@ const loginRef = ref<FormInstance>(),
 		},
 	],
 	form = reactive({
-		username: 'coveyz',
+		username: 'admin',
 		password: '123456',
 	}),
 	rules = reactive<FormRules>({
@@ -47,6 +47,7 @@ const loginRef = ref<FormInstance>(),
 		],
 	}),
 	state = reactive({
+		loading: false,
 		redirect: '',
 		otherQuery: {},
 	});
@@ -58,34 +59,45 @@ watch(
 		if (query) {
 			state.redirect = query['redirect']?.toString() ?? '';
 			state.otherQuery = getOtherQuery<LocationQuery>(query);
+      console.log('state=>',state)
 		}
 	}
 );
 
 // 🍌 获取其他 query
-function getOtherQuery<T>(query: T) {
+const getOtherQuery = <T>(query: T): T => {
 	const map = {} as T;
-
 	for (const key in query) {
 		if (key !== 'redirect') {
 			map[key] = query[key];
 		}
 	}
-  
 	return map;
-}
+};
 
 /** 🍌 登录 */
 const onLogin = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return;
 	formEl.validate((valid) => {
 		if (!valid) return console.log('error submit');
+		state.loading = true;
 		const userStore = useUserStore();
-		userStore.login(form).then((res) => {
-			console.log('res=>', res);
-		});
+		userStore
+			.login(form)
+			.then((res) => {
+				console.log('res=>', res);
+				router.push({
+					path: state.redirect.length ? state.redirect : '/',
+					query: state.otherQuery,
+				});
+				state.loading = false;
+			})
+			.catch((error) => {
+				state.loading = false;
+			});
 	});
 };
+
 // 🍌 跳转操作
 const handleOperation = (item: any) => {
 	if (item.name !== 'register') return console.warn(`暂不开放${item.title}功能`);

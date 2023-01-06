@@ -1,7 +1,8 @@
 
 const setting: ServerConfigs = {
   "Theme": "default",
-  "DarkMode": false
+  "DarkMode": false,
+  "Title": 'Admin'
 }
 
 export default setting
