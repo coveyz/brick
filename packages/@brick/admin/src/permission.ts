@@ -3,6 +3,7 @@ import 'nprogress/nprogress.css';
 import { NavigationGuardNext } from 'vue-router'
 
 import { useUserStore } from '@/store/modules/user'
+import { usePermissionStore } from '@/store/modules/permission'
 import router from '@/router';
 import { getToken } from '@/utils/auth';
 import { getPageTitle, errorMsg } from '@/utils/tools'
@@ -31,16 +32,22 @@ router.beforeEach(async (to: toRouteType, _form, next: NavigationGuardNext) => {
 
       try {
         const { roles } = await store.getInfo();
-        next()
+        const permissionStore = usePermissionStore();
+        const accessRoutes = await permissionStore.generateRoutes(roles);
+
+        console.log('accessRoutes=>', accessRoutes);
+        /** 🍌 动态追加路由 */
+        accessRoutes.forEach(route => {
+          router.addRoute(route)
+        })
+
+        next({ ...to, replace: true })
       } catch (error) {
-        //todo resetToken
         store.resetToken()
         console.error('permission-error', error)
-        // errorMsg('Has Error');
         next(`/user/login?redirect=${to.path}`);
         Nprogress.done()
       }
-
     }
 
   } else {

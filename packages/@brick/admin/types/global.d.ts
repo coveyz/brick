@@ -14,6 +14,9 @@ declare global {
       icon?: string;
       affix?: boolean;
       hidden?: boolean;
+      alwaysShow?: boolean;
+      roles?: string[];
     };
   }
+
 }

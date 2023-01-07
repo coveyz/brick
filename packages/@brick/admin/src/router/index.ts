@@ -17,7 +17,7 @@ export const constantsRoutes: RouteRecordRaw[] = [
       {
         path: "/user/login",
         component: () => import('@/views/login/index.vue'),
-        meta: { title: '登录',hidden: true, }
+        meta: { title: '登录', hidden: true, }
       },
       {
         path: '/user/register',
@@ -41,7 +41,22 @@ export const constantsRoutes: RouteRecordRaw[] = [
   }
 ]
 
-export const asynvRoutes: RouteRecordRaw[] = []
+export const asyncRoutes: RouteRecordRaw[] = [
+  {
+    path: '/permission',
+    component: BasicLayout,
+    redirect: '/permission/page',
+    meta: { title: 'Permission', icon: '', alwaysShow: true, roles: ['admin', 'editor'] },
+    children: [
+      {
+        path: 'page',
+        component: () => import('@/views/permission/page.vue'),
+        name: 'PagePermission',
+        meta: { title: 'Page Permission', roles: ['admin'] }
+      }
+    ]
+  }
+]
 
 export const resetRoutes = () => {
   const newRouter = routerFactory();
