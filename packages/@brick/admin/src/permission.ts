@@ -17,9 +17,9 @@ router.beforeEach(async (to: toRouteType, _form, next: NavigationGuardNext) => {
   document.title = getPageTitle(to.meta.title)
 
   if (getToken()) {
-    console.log('hasToken')
+    // console.log('hasToken')
     if (whiteList.includes(to.path)) {
-      console.log('登录成功之后 不得再跳到白名单的页面');
+      // console.log('登录成功之后 不得再跳到白名单的页面');
       next({ path: '/' })
       Nprogress.done()
     }
@@ -34,13 +34,11 @@ router.beforeEach(async (to: toRouteType, _form, next: NavigationGuardNext) => {
         const { roles } = await store.getInfo();
         const permissionStore = usePermissionStore();
         const accessRoutes = await permissionStore.generateRoutes(roles);
-
-        console.log('accessRoutes=>', accessRoutes);
+        // console.log('accessRoutes=>', accessRoutes);
         /** 🍌 动态追加路由 */
         accessRoutes.forEach(route => {
           router.addRoute(route)
         })
-
         next({ ...to, replace: true })
       } catch (error) {
         store.resetToken()

@@ -31,6 +31,8 @@ importers:
   packages/@brick/admin:
     specifiers:
       '@element-plus/icons-vue': ^2.0.10
+      '@iconify-icons/ep': ^1.2.10
+      '@iconify/vue': ^4.0.2
       '@types/js-cookie': ^3.0.2
       '@types/nprogress': ^0.2.0
       '@vitejs/plugin-vue': ^4.0.0
@@ -51,6 +53,7 @@ importers:
       vue-tsc: ^1.0.11
     dependencies:
       '@element-plus/icons-vue': 2.0.10_vue@3.2.45
+      '@iconify/vue': 4.0.2_vue@3.2.45
       '@types/nprogress': 0.2.0
       '@vueuse/motion': 2.0.0-beta.12_vue@3.2.45
       axios: 1.2.2
@@ -65,6 +68,7 @@ importers:
       vue: 3.2.45
       vue-router: 4.1.6_vue@3.2.45
     devDependencies:
+      '@iconify-icons/ep': 1.2.10
       '@types/js-cookie': 3.0.2
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.45
       typescript: 4.9.4
@@ -778,6 +782,24 @@ packages:
     dependencies:
       graphql: 15.5.0
       tslib: 2.4.0
+    dev: false
+
+  /@iconify-icons/ep/1.2.10:
+    resolution: {integrity: sha512-slLhiMM5snJi+Mbzj02UPkK1Ym5SK9U4l1CSbA5V6YGjzL1Pk60fGPB6b7Js3jObftONWji6bpJKFjOGYyPk/g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+
+  /@iconify/vue/4.0.2_vue@3.2.45:
+    resolution: {integrity: sha512-LRp+mYh8N0bcX4lustHtI5o1aEoio9HN3/19uIzVOvI78qopKBjzsDK5hkEZYDSc6+LKG8hfLxTxpW8CejXGZg==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.2.45
     dev: false
 
   /@josephg/resolvable/1.0.1:

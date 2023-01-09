@@ -9,6 +9,6 @@ export type UserType = {
 }
 
 export type PermissionType = {
-  addRoutes: Array<testRouteMetaType>,
-  routes: Array<testRouteMetaType>
+  addRoutes: Array<RouteRecordRaw>,
+  routes: Array<RouteRecordRaw>
 }

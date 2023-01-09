@@ -14,6 +14,7 @@ import '@/styles/tailwind.css'
 import 'element-plus/dist/index.css';
 
 import '@/permission'
+import '@/icons'
 
 
 const app = createApp(App);
