@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from '@/router';
 import { setupStore } from '@/store';
 import config from '@/setting'; //todo
-import { injectResponseStorage } from '@/utils/tools';
+import { injectResponseStorage,checkUpdate } from '@/utils/tools';
 
 //* 引入公共样式
 import '@/styles/index.scss';
@@ -16,6 +16,14 @@ import 'element-plus/dist/index.css';
 import '@/permission'
 import '@/icons'
 
+//* 重新部署 通知用户更新
+// const up = new checkUpdate({ timer: 2000 })
+// up.on('no-update', () => {
+//   console.log('未更新')
+// })
+// up.on('update',() => {
+//   console.log('update')
+// })
 
 const app = createApp(App);
 

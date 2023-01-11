@@ -3,6 +3,8 @@ import { ElNotification } from 'element-plus'
 import injectResponseStorage from './responsive';
 import setting from '@/setting'
 
+import { Update } from './checkUpdate';
+
 const $Storage = Storage;
 
 export const getItem = (key: string) => {
@@ -45,3 +47,5 @@ export const getPageTitle = (pageTitle?: string) => {
   return title
 }
 
+
+export const checkUpdate = Update;

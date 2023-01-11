@@ -8,8 +8,8 @@ import iconifyIconOffline from '@/components/Icons/hooks/iconifyIconOnline';
 <template>
 	<div>
 		<el-input :prefix-icon="useRenderIcon('user', { width: '300' })" />
-		<el-input :prefix-icon="useRenderIcon('2mp', { xxx: '300' })" />
-		<el-input :prefix-icon="useRenderIcon('material-symbols:3d-rotation', { xxx: '300' })" />
+		<el-input :prefix-icon="useRenderIcon('2mp', { width: '300' })" />
+		<el-input :prefix-icon="useRenderIcon('material-symbols:3d-rotation', { width: '300' })" />
     <iconifyIconOffline icon="la:address-card-solid"/>
 	</div>
 </template>
