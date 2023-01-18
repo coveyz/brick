@@ -9,8 +9,8 @@ import config from '@/setting'; //todo
 import { injectResponseStorage,checkUpdate } from '@/utils/tools';
 
 //* 引入公共样式
-import '@/styles/index.scss';
 import '@/styles/tailwind.css'
+import '@/styles/index.scss';
 import 'element-plus/dist/index.css';
 
 import '@/permission'

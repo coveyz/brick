@@ -39,6 +39,7 @@ export const usePermissionStore = defineStore('admin-permission', {
     SET_ROUTES(routes: RouteRecordRaw[]) {
       this.addRoutes = routes;
       this.routes = constantsRoutes.concat(routes);
+      console.log('xxx=>',this.routes)
     },
     /** 🍌 生成路由 */
     generateRoutes(roles: Array<string>) {

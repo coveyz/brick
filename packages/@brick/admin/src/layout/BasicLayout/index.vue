@@ -2,6 +2,8 @@
 import { computed, reactive } from 'vue';
 import { setType } from './types';
 
+import {Sidebar} from './components'
+
 const classObj: setType = reactive({
   //todo 🍌
 	classes: computed(() => {
@@ -16,7 +18,9 @@ const classObj: setType = reactive({
 </script>
 
 <template>
-	<div class="app-wrapper" :class="classObj.classes">BasicLayout</div>
+  <div class="app-wrapper" :class="classObj.classes">
+    <Sidebar />
+  </div>
 	<!-- <router-view /> -->
 </template>
 

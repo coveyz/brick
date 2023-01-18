@@ -1,0 +1,8 @@
+.sidebarLogoFade-enter-active {
+	transition: opacity 1.5s;
+}
+
+.sidebarLogoFade-enter,
+.sidebarLogoFade-leve-to {
+	opacity: 0;
+}

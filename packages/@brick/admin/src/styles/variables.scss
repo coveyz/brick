@@ -1,0 +1,12 @@
+$menuBg: #304156; //todo theme
+$sidebarWidth: 210px;
+
+
+:export {
+  sidebarWidth: $sidebarWidth;
+}
+
+//* 自定义全局 css
+:root {
+	--pur-transition--duration: 0.016s;
+}

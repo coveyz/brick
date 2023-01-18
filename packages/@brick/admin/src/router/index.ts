@@ -10,19 +10,19 @@ export const constantsRoutes: RouteRecordRaw[] = [
     path: '/user',
     component: UserLayout,
     redirect: '/user/login',
-    meta: {
-      hidden: true,
-    },
+    hidden: true,
     children: [
       {
         path: "/user/login",
         component: () => import('@/views/login/index.vue'),
-        meta: { title: '登录', hidden: true, }
+        hidden: true,
+        meta: { title: '登录' }
       },
       {
         path: '/user/register',
         component: () => import('@/views/register/index.vue'),
-        meta: { hidden: true }
+        hidden: true,
+        meta: { title: '注册' }
       }
     ]
   },
@@ -35,7 +35,7 @@ export const constantsRoutes: RouteRecordRaw[] = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true, hidden: true }
+        meta: { title: 'Dashboard', icon: 'user', affix: true }
       }
     ]
   }
@@ -46,13 +46,20 @@ export const asyncRoutes: RouteRecordRaw[] = [
     path: '/permission',
     component: BasicLayout,
     redirect: '/permission/page',
-    meta: { title: 'Permission', icon: '', alwaysShow: true, roles: ['admin', 'editor'] },
+    alwaysShow: true,
+    meta: { title: 'Permission', icon: '', roles: ['admin', 'editor'] },
     children: [
       {
         path: 'page',
         component: () => import('@/views/permission/page.vue'),
         name: 'PagePermission',
         meta: { title: 'Page Permission', roles: ['admin'] }
+      },
+      {
+        path: 'pageA',
+        component: () => import('@/views/permission/page.vue'),
+        name: 'PagePermissionA',
+        meta: { title: 'Page PermissionA', roles: ['admin'] }
       }
     ]
   }
