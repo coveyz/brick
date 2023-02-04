@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { computed } from 'vue';
 import { useRenderIcon } from '@/components/Icons/hooks/hook';
-
 
 const props = defineProps({
 	icon: {
@@ -14,21 +13,20 @@ const props = defineProps({
 	},
 });
 
-onMounted(() => {
-	console.log(props);
+const getMenuTextStyle = computed(() => {
+	return {
+		overflow: 'hidden',
+		textOverflow: 'ellipsis',
+		outline: 'none',
+	};
 });
-
-
 </script>
 
 <template>
-	<!-- <i v-if="props.icon" :class="useRenderIcon(props.icon)" /> -->
-  <template v-if="props.icon">
-    <component 
-      :is="useRenderIcon(props.icon, {width: '20', height: '20',})"
-    />
-  </template>
-	<span v-if="props.title"> {{ props.title }} </span>
+	<template v-if="props.icon">
+		<component class="svg-icon" :is="useRenderIcon(props.icon, { style: { 'margin-right': '5px', 'flex-shrink': '0' } })" />
+	</template>
+	<span v-if="props.title" :style="getMenuTextStyle"> {{ props.title }} </span>
 </template>
 
 <style scoped></style>

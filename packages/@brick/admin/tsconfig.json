@@ -18,7 +18,6 @@
 			"@/*": ["src/*"]
 		},
     "types": [
-      "node",
       "element-plus/global",
     ]
 	},

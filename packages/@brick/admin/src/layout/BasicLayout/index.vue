@@ -1,26 +1,28 @@
 <script lang="ts" setup>
 import { computed, reactive } from 'vue';
 import { setType } from './types';
+import { Sidebar } from './components';
+import { useAppStore } from '@/store/modules/app';
 
-import {Sidebar} from './components'
+const useApp = useAppStore();
 
 const classObj: setType = reactive({
-  //todo 🍌
+	//todo 🍌
 	classes: computed(() => {
 		return {
-			hideSidebar: true,
-			openSidebar: true,
-			mobile: true,
-			withoutAnimation: false,
+			hideSidebar: !useApp.sidebar.opened,
+			openSidebar: useApp.sidebar.opened,
+			mobile: false,
+			withoutAnimation: useApp.sidebar.withoutAnimation,
 		};
 	}),
 });
 </script>
 
 <template>
-  <div class="app-wrapper" :class="classObj.classes">
-    <Sidebar />
-  </div>
+	<div class="app-wrapper" :class="classObj.classes">
+		<Sidebar />
+	</div>
 	<!-- <router-view /> -->
 </template>
 

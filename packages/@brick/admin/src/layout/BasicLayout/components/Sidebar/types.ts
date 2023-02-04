@@ -1,5 +1,5 @@
 export type childrenType = {
-  path: string;
+  path?: string;
   noShowingChildren?: boolean;
   children?: childrenType;
   value: unknown;

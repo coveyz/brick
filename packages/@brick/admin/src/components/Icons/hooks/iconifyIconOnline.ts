@@ -13,6 +13,7 @@ export default defineComponent({
     const attrs = this.$attrs
     return h(IconifyIcon, {
       icon: `${this.icon}`,
+      class: 'svg-icon',
       style: attrs?.style
         ? Object.assign(attrs.style, { outline: "none" })
         : { outline: "none" },

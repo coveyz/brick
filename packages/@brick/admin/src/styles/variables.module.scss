@@ -1,0 +1,22 @@
+$menuBg: #304156; //todo theme
+$sidebarWidth: 210px;
+$menuText: #bfcbd9;
+$menuActiveText:#409EFF;
+$menuHover: #263445;
+$subMenuActiveText:#f4f4f5; // https://github.com/ElemeFE/element/issues/12951
+
+
+
+:export {
+  sidebarWidth: $sidebarWidth;
+  menuBg: $menuBg;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  menuHover: $menuHover;
+  subMenuActiveText: $subMenuActiveText
+}
+
+//* 自定义全局 css
+:root {
+	--pur-transition--duration: 0.28s;
+}

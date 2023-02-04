@@ -3,5 +3,6 @@ export interface iconType {
   width?: string | number;
   height?: string | number;
   color?: string;
+  fill?:string;
   style?: object;
 }

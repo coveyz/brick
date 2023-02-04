@@ -12,3 +12,9 @@ export type PermissionType = {
   addRoutes: Array<RouteRecordRaw>,
   routes: Array<RouteRecordRaw>
 }
+
+export type AppType = {
+  sidebar: {
+    opened: string,
+  }
+}

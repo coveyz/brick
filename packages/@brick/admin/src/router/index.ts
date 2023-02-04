@@ -10,19 +10,17 @@ export const constantsRoutes: RouteRecordRaw[] = [
     path: '/user',
     component: UserLayout,
     redirect: '/user/login',
-    hidden: true,
+    meta: { hidden: true },
     children: [
       {
         path: "/user/login",
         component: () => import('@/views/login/index.vue'),
-        hidden: true,
-        meta: { title: '登录' }
+        meta: { title: '登录', hidden: true }
       },
       {
         path: '/user/register',
         component: () => import('@/views/register/index.vue'),
-        hidden: true,
-        meta: { title: '注册' }
+        meta: { title: '注册', hidden: true }
       }
     ]
   },
@@ -46,8 +44,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     path: '/permission',
     component: BasicLayout,
     redirect: '/permission/page',
-    alwaysShow: true,
-    meta: { title: 'Permission', icon: '', roles: ['admin', 'editor'] },
+    meta: { title: 'Permission',alwaysShow: false, icon: 'email', roles: ['admin', 'editor'] },
     children: [
       {
         path: 'page',

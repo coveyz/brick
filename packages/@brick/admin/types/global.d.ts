@@ -1,5 +1,5 @@
 import type { VNode } from 'vue';
-import { RouteLocationNormalized } from 'vue-router'
+import { RouteLocationNormalized,RouteRecordRaw } from 'vue-router'
 
 declare global {
   interface ServerConfigs {
@@ -18,5 +18,4 @@ declare global {
       roles?: string[];
     };
   }
-
 }

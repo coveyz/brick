@@ -22,6 +22,64 @@
 			width: 100%;
 			overflow: hidden;
 		}
+
+		.svg-icon {
+			// margin-left: 16px;
+		}
+
+		.el-menu-item,
+		.el-sub-menu__title {
+			height: 50px;
+			&:hover {
+				background-color: $menuHover !important;
+			}
+			div span {
+				height: 50px;
+				line-height: 50px;
+			}
+		}
+	}
+
+	.hideSidebar {
+		.sidebar-container {
+			width: 54px !important;
+		}
+		.main-container {
+			margin-left: 54px;
+		}
+		.submenu-title-noDropdown {
+			padding: 0 !important;
+			position: relative;
+			.svg-icon {
+				// margin-left: 20px;
+			}
+		}
+
+		// 菜单折叠
+		.el-menu--collapse {
+			.el-sub-menu {
+				&>.el-sub-menu__title {
+					&>span {
+						width: 0;
+						height: 0;
+						overflow: hidden;
+						visibility: hidden;
+						display: inline-block;
+					}
+				}
+			}
+		}
+
+		.el-sub-menu .el-sub-menu__icon-arrow {
+			display: none;
+		}
+		.is-active.submenu-title-noDropdown.outer-most {
+			background: transparent !important;
+		}
+	}
+
+	.el-menu--collapse .el-menu .el-submenu {
+		min-width: $sidebarWidth !important;
 	}
 
 	.sidebar-logo-container {
@@ -59,7 +117,6 @@
 			}
 		}
 	}
-
 	.scrollbar-wrapper {
 		overflow-x: hidden !important;
 	}
