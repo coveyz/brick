@@ -28,7 +28,6 @@ const alwaysShowRootMenu = computed(() => {
 	return false;
 });
 
-
 const hasOneShowingChild = (children: childrenType[] = [], parent: childrenType) => {
 	const showingChildren = children.filter((item) => {
 		if (item.meta && item.meta.hidden) {
@@ -49,14 +48,13 @@ const hasOneShowingChild = (children: childrenType[] = [], parent: childrenType)
 	}
 
 	return false;
-}
+};
 
 const resolvePath = (routePath: string = '') => {
 	//todo
 	//todo
 	return path.resolve(props.basePath, routePath);
 };
-
 </script>
 
 <template>
@@ -65,8 +63,8 @@ const resolvePath = (routePath: string = '') => {
 		<template
 			v-if="
 				hasOneShowingChild(props.item.children, props.item) &&
-				(!onlyOneChild.children || onlyOneChild.noShowingChildren) 
-        && !alwaysShowRootMenu
+				(!onlyOneChild.children || onlyOneChild.noShowingChildren) &&
+				!alwaysShowRootMenu
 			"
 		>
 			<app-link :to="resolvePath(onlyOneChild.path)" v-if="onlyOneChild.meta">
@@ -78,17 +76,17 @@ const resolvePath = (routePath: string = '') => {
 		<!-- else -->
 		<el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
 			<template #title>
-				<Item v-if="props.item.meta" :icon="props.item.meta && props.item.meta.icon" :title="props.item.meta.title" />
+					<Item v-if="props.item.meta" :icon="props.item.meta && props.item.meta.icon" :title="props.item.meta.title" />
 			</template>
 			<!-- <template v-if="props.item.children"> -->
-				<SidebarItem
-					v-for="child in props.item.children"
-					:key="child.path"
-					:is-nest="true"
-					:item="child"
-					:base-path="resolvePath(child.path)"
-					class="nest-menu"
-				/>
+			<SidebarItem
+				v-for="child in props.item.children"
+				:key="child.path"
+				:is-nest="true"
+				:item="child"
+				:base-path="resolvePath(child.path)"
+				class="nest-menu"
+			/>
 			<!-- </template> -->
 		</el-sub-menu>
 	</div>

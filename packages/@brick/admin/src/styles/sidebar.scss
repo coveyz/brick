@@ -25,6 +25,7 @@
 
 		.svg-icon {
 			// margin-left: 16px;
+      fill: currentColor
 		}
 
 		.el-menu-item,
@@ -111,7 +112,7 @@
 				display: inline-block;
 			}
 		}
-		&.collapse {
+		&.collapsee {
 			.sidebar-logo {
 				margin-right: 0px;
 			}

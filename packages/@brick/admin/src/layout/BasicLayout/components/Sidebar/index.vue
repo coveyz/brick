@@ -42,7 +42,6 @@ const toggleSideBar = () => {
 
 <template>
 	<div :class="['sidebar-container', showLogo ? 'has-logo' : '']">
-    {{ isCollapse }}
 		<Logo v-if="showLogo" :collapse="isCollapse" />
 		<!-- 👷‍♀️ 导航栏 -->
 		<el-scrollbar wrap-class="scrollbar-wrapper">

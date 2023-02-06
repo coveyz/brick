@@ -13,10 +13,11 @@ const state = reactive({
 </script>
 
 <template>
-	<div class="sidebar-logo-container" :class="{ collapse: props.collapse }">
+	<div class="sidebar-logo-container" :class="{ collapsee: props.collapse }">
 		<transition name="sidebarLogoFade">
 			<router-link v-if="props.collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="state.logo" :src="state.logo" class="sidebar-logo">
+        <!-- <img v-if="state.logo" src="../../../../assets/vite.svg" class="sidebar-logo"> -->
 				<h1 class="sidebar-title"> {{ state.title }} </h1>
 			</router-link>
 			<router-link v-else key="expand" class="sidebar-logo-link" to="/">
