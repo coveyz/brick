@@ -6,10 +6,10 @@ export type LoginType = {
 }
 
 export type UserInfoResult = {
-    roles: Array<string>
-    introduction: string
-    avatar: string,
-    name: string
+  roles: Array<string>
+  introduction: string
+  avatar: string,
+  name: string
 }
 
 /** 🍌 登录 */

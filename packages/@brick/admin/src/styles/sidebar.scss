@@ -1,5 +1,12 @@
 // todo
 #app {
+	.main-container {
+		min-height: 100%;
+		transition: margin-left 0.28s;
+		margin-left: $sidebarWidth;
+		position: relative;
+	}
+
 	.sidebar-container {
 		transition: width var(--pur-transition--duration);
 		width: $sidebarWidth;
@@ -25,8 +32,13 @@
 
 		.svg-icon {
 			// margin-left: 16px;
-      fill: currentColor
+			fill: currentColor;
 		}
+    .el-menu {
+      border: none;
+      height: 100%;
+      background-color: transparent !important;
+    }
 
 		.el-menu-item,
 		.el-sub-menu__title {
@@ -59,8 +71,8 @@
 		// 菜单折叠
 		.el-menu--collapse {
 			.el-sub-menu {
-				&>.el-sub-menu__title {
-					&>span {
+				& > .el-sub-menu__title {
+					& > span {
 						width: 0;
 						height: 0;
 						overflow: hidden;

@@ -28,7 +28,6 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const res = response.data
-    // console.log('service-response->', res)
     if (res.code !== 20000) {
       errorMsg(res.message || 'ResponseError');
       //🍌 50008:非法令牌；50012:其他客户端已登录；50014:令牌已过期；

@@ -6,6 +6,7 @@ declare global {
     Theme?: string;
     DarkMode?: boolean;
     Title?: string;
+    FixedHeader?:boolean;
   }
 
   interface toRouteType extends RouteLocationNormalized {

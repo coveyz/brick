@@ -2,7 +2,8 @@
 const setting: ServerConfigs = {
   "Theme": "default",
   "DarkMode": false,
-  "Title": 'Admin'
+  "Title": 'Admin',
+  'FixedHeader': false,
 }
 
 export default setting
