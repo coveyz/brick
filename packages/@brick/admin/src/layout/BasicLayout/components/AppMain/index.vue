@@ -3,8 +3,8 @@
 <template>
 	<section class="app-main">
 		<transition name="fade-transform" mode="out-in">
-      <router-view />
-    </transition>
+			<router-view class="main-content" />
+		</transition>
 	</section>
 </template>
 
@@ -14,5 +14,8 @@
 	width: 100%;
 	position: relative;
 	overflow: hidden;
+}
+.main-content {
+	margin: 24px;
 }
 </style>

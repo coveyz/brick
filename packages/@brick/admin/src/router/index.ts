@@ -59,6 +59,20 @@ export const asyncRoutes: RouteRecordRaw[] = [
         meta: { title: 'Page PermissionA', roles: ['admin'] }
       }
     ]
+  }, 
+  {
+    path: '/able',
+    component: BasicLayout,
+    redirect: '/able/watermark',
+    meta: {title: '功能',alwaysShow: true, icon: '2mp', roles: ['admin', 'editor']},
+    children: [
+      {
+        path: 'watermark',
+        component: () => import('@/views/able/watermark/index.vue'),
+        name: 'watermark',
+        meta: { title: '水印', roles: ['admin'] }
+      },
+    ]
   }
 ]
 
