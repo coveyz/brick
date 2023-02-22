@@ -1,6 +1,7 @@
 import { Ref } from 'vue';
 import { attr } from './type';
 import { useCanvasWatermark, useClearCanvasWatermark } from './canvas';
+import { useBlobWatermark, useClearBlobWatermark } from './blob';
 
 const defaultAttrs: attr = {
   type: 'canvas',
@@ -11,11 +12,13 @@ const defaultAttrs: attr = {
   forever: false, //* 无法删除 默认 false
 }
 
+
+
 export const useWatermark = (appendEl?: Ref<HTMLElement | null>) => {
   const setWatermark = (str: string, attr?: attr | undefined): void => {
-    const node = appendEl?.value ? appendEl.value : document.body, 
+    const node = appendEl?.value ? appendEl.value : document.body,
       newAttr = Object.assign(defaultAttrs, attr);
-    
+
     //* 全局水印 如果是BODY的话 水印不得删除
     if (node.tagName === 'BODY') {
       newAttr['forever'] = false
@@ -24,7 +27,7 @@ export const useWatermark = (appendEl?: Ref<HTMLElement | null>) => {
     if (attr?.type === 'canvas') {
       return useCanvasWatermark(str, node, newAttr)
     } else if (attr?.type === 'blob') {
-      return console.log('todo')
+      return useBlobWatermark(str, node, newAttr)
     } else {
       return useCanvasWatermark(str, node, newAttr)
     }
@@ -34,6 +37,7 @@ export const useWatermark = (appendEl?: Ref<HTMLElement | null>) => {
   const clearWatermark = (): void => {
     const node = appendEl?.value ? appendEl.value : document.body;
     useClearCanvasWatermark(node);
+    useClearBlobWatermark(node);
   }
 
   return { setWatermark, clearWatermark }

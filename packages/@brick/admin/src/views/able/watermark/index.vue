@@ -11,16 +11,24 @@ const local = ref();
 
 const setPartPageWatermark = (type: string) => {
 	const target = type == 'part' ? local : ref(null);
-
 	const { setWatermark } = useWatermark(target);
 	setWatermark(state.mark, { fillStyle: state.color, type: 'canvas', forever: true });
 };
+
+const setPartPageWatermarkImg = (type: string) => {
+	const target = type == 'part' ? local : ref(null);
+	const { setWatermark } = useWatermark(target);
+	setWatermark(state.mark, { fillStyle: state.color, type: 'blob', forever: true });
+};
+
+
 
 const clearPartPageWatermark = (type: string) => {
 	const target = type === 'part' ? local : ref(null);
 	const { clearWatermark } = useWatermark(target);
 	clearWatermark();
 };
+
 </script>
 
 <template>
@@ -45,6 +53,8 @@ const clearPartPageWatermark = (type: string) => {
 		<div ref="local" class="w-[1080px] h-[400px] mt-4 mb-4 border-dotted border-2 border-sky-500">
 			<span>555</span>
 		</div>
+		<el-button @click="setPartPageWatermarkImg('part')">创建 局部 水印Img</el-button>
+		<!-- <el-button @click="setPartPageWatermarkImg('part')">清空 局部 水印</el-button> -->
 	</el-card>
 </template>
 

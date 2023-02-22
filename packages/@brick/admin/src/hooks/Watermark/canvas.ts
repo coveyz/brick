@@ -1,6 +1,5 @@
-import { reactive, watch } from 'vue';
+import { reactive } from 'vue';
 import { attr, watermarkInfoType } from './type';
-import router from '@/router';
 
 
 const watermarkInfo: watermarkInfoType = reactive({
@@ -8,9 +7,6 @@ const watermarkInfo: watermarkInfoType = reactive({
   observeInfo: new WeakMap(),
 })
 
-watch(() => router.currentRoute.value, () => {
-  console.log('>>>')
-})
 
 /** 🚀 写入 canvas 信息 */
 const writeInfo = (ctx: CanvasRenderingContext2D, str: string, x: number, y: number) => {
