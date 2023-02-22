@@ -68,7 +68,7 @@ const obserWatermarkContainer = (node: HTMLElement) => {
 
 }
 
-
+// 🚀 设置 背景图 水印
 export const useBlobWatermark = (str: string = '水印', node: HTMLElement, attr?: attr) => {
   const hasNode = watermarkInfo['container'].has(node);
 
@@ -81,20 +81,18 @@ export const useBlobWatermark = (str: string = '水印', node: HTMLElement, attr
 
   const picWatermark = cretaeImageWithmark(str, node, attr)
   const styles = `
-    background: url(${picWatermark})
+    background: url(${picWatermark})!important;
   `
   node.setAttribute('style', styles)
 
   obserWatermarkContainer(node)
 }
 
-
+/** 🚀 删除背景水印 */
 export const useClearBlobWatermark = (node: HTMLElement) => {
   if (!watermarkInfo['container'].has(node)) {
-    return console.warn('当前节点 blob 不存在 水印👮')
+    return console.warn('blob-当前节点 不存在 水印👮');
   }
-
-  console.log('blob-has')
 
   const observe = watermarkInfo['observeInfo'].get(node);
   observe?.disconnect();

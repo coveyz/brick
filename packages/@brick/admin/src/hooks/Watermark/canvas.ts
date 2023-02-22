@@ -68,7 +68,6 @@ const obserWatermarkContainer = (targetNode: any) => {
 
   const cb = (mutationList: any, observe: any) => {
     for (const mutation of mutationList) {
-      console.log('mutation=>', mutation)
       //* 不允许修改 style 
       if (mutation.type === 'attributes') {
         return handleWatermarkContainer(targetNode)
@@ -120,7 +119,7 @@ export const useCanvasWatermark = (str: string = '水印', node: HTMLElement, at
 /** 🚀删除水印 */
 export const useClearCanvasWatermark = (node: HTMLElement) => {
   if (!watermarkInfo['container'].has(node)) {
-    return console.warn('当前节点 不存在 水印👮')
+    return console.warn('children-当前节点 不存在 水印👮')
   }
 
   console.log('watermarkInfo=>', watermarkInfo['container'].has(node))

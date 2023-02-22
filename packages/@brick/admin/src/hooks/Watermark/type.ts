@@ -1,5 +1,5 @@
 export interface attr {
-  type?: 'canvas' | 'blob'
+  type?: 'children' | 'blob'
   font?:string
   fillStyle?: string /** 填充绘制图形的颜色，默认  */
   rotate?: number
