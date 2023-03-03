@@ -72,6 +72,12 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: 'watermark',
         meta: { title: '水印', roles: ['admin'] }
       },
+      {
+        path: 'copping',
+        component: () => import('@/views/able/cropping/index.vue'),
+        name: 'copping',
+        meta: { title: '图片剪裁', roles: ['admin'] }
+      },
     ]
   }
 ]
