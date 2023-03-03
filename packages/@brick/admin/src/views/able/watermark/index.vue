@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 // import { useWatermark } from './hooks';
-import { useWatermark } from '@/hooks';
+// import { useWatermark } from '@/hooks';
+import { useWatermark } from '@brick/admin-box';
+
 const state = reactive({
 	mark: 'coveyz',
 	color: '#409EFF',
@@ -36,6 +38,7 @@ const clearPartPageWatermark = (type: string) => {
 			</div>
 		</template>
 		<!-- content -->
+    <!-- <br /> -->
 		<span> 水印: </span>
 		<el-input v-model="state.mark" placeholder="" style="width: 200px" class="mb-4 mr-4" />
 		<span> 颜色： </span>

@@ -6,7 +6,7 @@ import App from './App.vue'
 import router from '@/router';
 import { setupStore } from '@/store';
 import config from '@/setting'; //todo
-import { injectResponseStorage,checkUpdate } from '@/utils/tools';
+import { injectResponseStorage, checkUpdate } from '@/utils/tools';
 
 //* 引入公共样式
 import '@/styles/tailwind.css'
@@ -26,6 +26,10 @@ import '@/icons'
 // })
 
 const app = createApp(App);
+//❗️ 测试 pnpm 字应用 组件
+// import AdminBox from '@brick/admin-box';
+// app.use(AdminBox)
+//❗️ 测试 pnpm 字应用 组件
 
 setupStore(app)
 injectResponseStorage(app, config)
