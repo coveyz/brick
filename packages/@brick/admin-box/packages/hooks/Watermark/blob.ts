@@ -1,5 +1,5 @@
 import { reactive } from 'vue';
-import { attr, watermarkInfoType } from './type';
+import { attr,watermarkInfoType } from '../../types';
 
 
 const watermarkInfo: watermarkInfoType = reactive({

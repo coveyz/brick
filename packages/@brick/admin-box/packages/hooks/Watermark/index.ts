@@ -1,10 +1,11 @@
 import { Ref } from 'vue';
-import { attr } from './type';
+// import { attr } from './type';
+import { attr } from '../../types'
 import { useCanvasWatermark, useClearCanvasWatermark } from './canvas';
 import { useBlobWatermark, useClearBlobWatermark } from './blob';
 
 const defaultAttrs: attr = {
-  type: 'canvas',
+  type: 'children',
   font: '20px YaHei',
   fillStyle: 'rgba(0, 0, 0, 0.15)',
   rotate: -10,

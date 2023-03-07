@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
-import { useWatermark } from './hooks';
+import { useWatermark } from '../packages/hooks';
 
 const local = ref();
 
