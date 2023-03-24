@@ -1,12 +1,14 @@
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
 import { viteMockServe } from 'vite-plugin-mock'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export function pluginList(command: string) {
   console.log('plugin=>', command)
   const prodMock = true;
   return [
     vue(),
+    vueJsx(),
     svgLoader(),
     viteMockServe({
       mockPath: 'mock', //* --设置模拟数据的存储文件夹，如果不是index.js需要写明完整路径

@@ -78,6 +78,12 @@ export const asyncRoutes: RouteRecordRaw[] = [
         name: 'copping',
         meta: { title: '图片剪裁', roles: ['admin'] }
       },
+      {
+        path: 'search',
+        component: () => import('@/views/able/search/index.vue'),
+        name: 'search',
+        meta: { title: '搜索', roles: ['admin'] }
+      }
     ]
   }
 ]

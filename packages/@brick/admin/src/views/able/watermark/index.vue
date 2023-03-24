@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 // import { useWatermark } from './hooks';
-// import { useWatermark } from '@/hooks';
-import { useWatermark } from '@brick/admin-box';
+import { useWatermark } from '@/hooks';
+// import { useWatermark } from '@brick/admin-box';
 
 const state = reactive({
 	mark: 'coveyz',
