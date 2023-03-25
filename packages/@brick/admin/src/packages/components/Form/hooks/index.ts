@@ -38,7 +38,6 @@ export const useFormData = (props: any) => {
    */
   const resetFileds = () => {
     formState['template'] = formState['template'].map((item: any) => {
-      item['value'] = null;
       if (Array.isArray(item['value'])) {
         item['value'] = [];
       }

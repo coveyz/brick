@@ -39,6 +39,7 @@ export const useWrapper = () => {
       formItemNumber += Number(curItemColNumber);
     })
 
+    console.log('formItemNumber=>',formItemNumber)
     return formItemNumber
   }
 

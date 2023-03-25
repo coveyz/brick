@@ -36,13 +36,13 @@ export default defineComponent({
             this.template.map(((item:any) => {
               if (item.type === 'input') {
                 return (
-                  <el-form-item label={item.text} prop={item.name} col={2}>
+                  <el-form-item label={item.text} prop={item.name} col={item.col}>
                     <brickInput item={item}/>
                   </el-form-item>
                 )
-              } else if (item.type === 'select') {
+              } else if (item.type === 'select' || item.type === 'mulSelect') {
                 return (
-                  <el-form-item label={item.text} prop={item.name}>
+                  <el-form-item label={item.text} prop={item.name} col={item.col}>
                     <brickSelect item={item} optionsData={this.optionsData}/>
                   </el-form-item>
                 )

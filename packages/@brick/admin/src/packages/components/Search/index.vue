@@ -42,7 +42,7 @@ defineExpose({
     </wrapper>
 	</div>
   <div class="" v-else>
-    else
+    <BrickForm :config="props.config" :inline="true" ref="form" :optionsData="props.optionsData" />
   </div>
 </template>
 
