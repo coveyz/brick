@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { brickInput, brickSelect } from './components'
+import { brickInput, brickSelect,brickDate } from './components'
 import { useFormData } from './hooks';
 
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  components: { brickInput,brickSelect },
+  components: { brickInput,brickSelect,brickDate },
   setup(props) {
     const { model,template,formRef,getFields, resetFileds } = useFormData(props)
 
@@ -44,6 +44,12 @@ export default defineComponent({
                 return (
                   <el-form-item label={item.text} prop={item.name} col={item.col}>
                     <brickSelect item={item} optionsData={this.optionsData}/>
+                  </el-form-item>
+                )
+              } else if (item.type === 'date') {
+                return (
+                  <el-form-item label={item.text} prop={item.name} col={item.col}>
+                    <brickDate item={item} />
                   </el-form-item>
                 )
               }

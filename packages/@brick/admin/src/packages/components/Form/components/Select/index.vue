@@ -9,7 +9,7 @@ const props = defineProps<{
 
 const options = computed<SelectItemOptionsType>(() => {
 	const { item, optionsData } = props;
-  
+
 	if (Array.isArray(item.options)) {
 		return item.options;
 	} else {

@@ -13,6 +13,6 @@ export interface SelectConfigurationType extends baseFormConfigurationType {
 }
 
 export interface MultipleSelectConfigurationType extends baseFormConfigurationType {
-  value: any[],
-  options: string | any[],
+  value: Array<string | number>
+  options: string | any[]
 }

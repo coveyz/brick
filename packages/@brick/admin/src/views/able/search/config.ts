@@ -63,6 +63,53 @@ const config = [
     ],
     // targetName: '',
     col: 2
+  },
+  {
+    name: 'date',
+    text: '日期',
+    type: 'date',
+    value: '2023/03/1',
+    disabled: false,
+    col: 2,
+    dateType: 'date',
+    format: '',
+    valueFormat: ''
+  },
+  {
+    name: 'month',
+    text: '日期-月份',
+    type: 'date',
+    value: '',
+    disabled: false,
+    col: 2,
+    dateType: 'month',
+    format: 'YYYY-MM-DD',
+    valueFormat: ''
+  },
+  {
+    name: 'dates',
+    text: '日期s',
+    type: 'date',
+    value: '',
+    disabled: false,
+    col: 2,
+    dateType: 'dates',
+    format: 'YYYY-MM-DD',
+    valueFormat: ''
+  },
+  {
+    name: 'daterange',
+    text: '日期daterange',
+    type: 'date',
+    value: '',
+    disabled: false,
+    col: 2,
+    dateType: 'monthrange',
+    format: 'YYYY-MM-DD',
+    valueFormat: '',
+    rangeSeparator: '-',
+    startPlaceholder: '?',
+    endPlaceholder: 'x'
   }
 ];
 
