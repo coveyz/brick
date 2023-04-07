@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus';
+// @ts-ignore 
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import { MotionPlugin } from '@vueuse/motion';
 
 import App from './App.vue'
@@ -34,4 +36,6 @@ const app = createApp(App);
 setupStore(app)
 injectResponseStorage(app, config)
 
-app.use(MotionPlugin).use(router).use(ElementPlus).mount('#app')
+app.use(MotionPlugin).use(router).use(ElementPlus, {
+  locale: zhCn,
+}).mount('#app')

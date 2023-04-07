@@ -22,7 +22,6 @@ const initData = () => {
 
 <template>
 	<div class="app-container">
-		<!-- {{ config }} -->
 		<Search 
       ref="searchRef"
       :config="config"

@@ -15,17 +15,21 @@
 		"noEmit": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["src/*"]
+			"@/*": ["src/*"],
+			"~/*": ["packages/*"]
 		},
-		"types": ["element-plus/global"]
+		"types": ["element-plus/global"],
+		"declaration": true
 	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
+		"packages/**/**/*",
+		"packages/**/*",
 		"types/*.d.ts",
 		"tests/**/*.ts",
-		"tests/**/*.tsx",
-		"src/packages/components/Search/index.jsx"
-	]
+		"tests/**/*.tsx"
+	],
+  "exclude": ["node_modules", "dist"]
 }

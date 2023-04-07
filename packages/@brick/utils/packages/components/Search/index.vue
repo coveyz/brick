@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Form as BrickForm } from '@/packages';
+import { Form as BrickForm } from '~/index';
 import wrapper from './components/Wrapper.vue';
 
 const props = defineProps({
@@ -39,12 +39,12 @@ defineExpose({
 			<template #content>
 				<BrickForm :config="props.config" :inline="true" ref="form" :optionsData="props.optionsData" />
 			</template>
-      <template #operate>
-        <div class="">
-          <el-button type="primary" size="small" @click="getFileds">查询</el-button>
-          <el-button size="small" @click="resetFileds">清空</el-button>
-        </div>
-      </template>
+			<template #operate>
+				<div class="">
+					<el-button type="primary" @click="getFileds">查询</el-button>
+					<el-button @click="resetFileds">清空</el-button>
+				</div>
+			</template>
 		</wrapper>
 	</div>
 	<div class="" v-else>
@@ -52,9 +52,4 @@ defineExpose({
 	</div>
 </template>
 
-<style scoped>
-.testTmp {
-  color: red
-}
-
-</style>
+<style scoped></style>
